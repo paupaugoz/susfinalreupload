@@ -1,0 +1,34 @@
+<h1 style="text-align:center"> Here are the Candidates </h1>
+
+<%= link_to("Add Candidate", new_admin_candidate_path) %>
+
+<table width="70%", align="center">
+  <tr>
+    <th>Position</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th> Nickname</th>
+    <th>Slogan</th>
+    <th>Position id</th>
+  </tr>
+  <% @candidates.each do |a| %>
+    <tr>
+      <td><%= a.position.name %></td>
+      <td><%= a.first_name %></td>
+      <td><%= a.last_name %></td>
+      <td><%= a.nickname %></td>
+      <td><%= a.slogan %></td>
+      <td><%= a.position_id %></td>
+      <td>
+        <%= link_to "Show", admin_candidate_path(a.id) %>
+        <%= link_to "Edit", edit_admin_candidate_path(a.id) %>
+        <%= link_to "Delete", admin_candidate_path(a.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to("Back to Home", root_path) %>
+
+

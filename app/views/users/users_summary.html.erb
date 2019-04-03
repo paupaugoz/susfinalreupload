@@ -1,0 +1,25 @@
+<h1>test</h1>
+<table>
+    <tr>
+        <th>USERS</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+            <% @user.each do |hello| %>
+            <tr>
+                <td>
+                    <%= hello.email %>
+                </td>
+                <td>
+                    <a href = "delete/<%= hello.id %>">DELETE</a>
+                </td>
+            </tr>
+            <% end %>
+    </tr>
+</table>
+
+<% @archive.each do |a| %>
+<h1><%= a.name %></h1>
+<h1><%= a.candidate %></h1>
+<h1><%= a.position %></h1>
+<% end %>

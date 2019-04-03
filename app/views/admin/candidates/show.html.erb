@@ -1,0 +1,21 @@
+<h1><%= @candidate.nickname %></h1>
+<br>
+<%= link_to "Back to List", admin_candidates_path %>
+
+<ul>
+	<li><%= @candidate.first_name %></li>
+	<li><%= @candidate.last_name %></li>
+	
+		<li><%= @candidate.slogan %></li>
+
+</ul>
+
+<hr>
+<h2>Comments by Voters for <%= @candidate.last_name %>:</h2>
+
+	<% @candidate.votes.each do |x| %>
+		<!-- Paulo Macasaet Item number 3 -->
+		<li>Name: <strong><%= x.user.email %> || ID: <%= x.user_id %></strong></li>
+		<li>Comments: <strong><%= x.comments %></strong></li>
+		
+	<% end %>

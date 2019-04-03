@@ -1,0 +1,7 @@
+<h1>Position: <%= @position.name %></h1>
+<h2>Candidates:</h2>
+<ul>
+	<% @candidates.each do |c| %>
+		<li><%= link_to c.last_name candidate_path(c.id) %></li>
+	<% end %>
+</ul>

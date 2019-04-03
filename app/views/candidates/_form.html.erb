@@ -1,0 +1,8 @@
+<%= simple_form_for(@candidate) do |f| %>
+  <%= f.association :position %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :nickname %>
+  <%= f.input :slogan %>
+  <%= f.submit %>
+<% end %>

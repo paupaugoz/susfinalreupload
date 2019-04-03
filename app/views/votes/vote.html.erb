@@ -1,0 +1,27 @@
+<h1>VOTE HERE</h1>
+
+<%= link_to "Vote Summary", vote_history_path %>
+
+<% @candidates.each do |position_id, candidates| %>
+<%= simple_form_for(@vote, url: confirm_vote_path, method: :post) do |o| %>
+
+		<%= Position.find(position_id).name %>
+				<ul> 
+					<li><%= o.association :candidate, :collection => candidates %></li>
+					<li><%= o.input :comments %></li>
+				</ul>
+				
+			<% voted = false %>
+				
+			<% Vote.where(user_id: current_user.id).each do |v| %>
+				<% if Candidate.find(v.candidate_id).position_id == position_id %>
+					<% voted = true %>
+				<% end %>
+			<% end %>
+			<% if voted == false %>
+				<%= o.button :submit, "Vote" %> 
+			<% else %>
+				<p>Your vote has been counted || <%= link_to "back", candidates_list_path, disabled: true %></p>
+			<% end %>
+	<% end %>
+<% end %>

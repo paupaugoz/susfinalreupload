@@ -1,0 +1,40 @@
+
+
+<div class = "container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+  
+  
+    <ul class="nav navbar-nav navbartxt">
+      <li><%= link_to "HOME", root_path %></li>
+      <li class="active"><%= link_to "VOTE TALLY", candidates_list_path %></li>
+      <li><%= link_to "CANDITATE LIST", candidates_path %></li> 
+      <li><%= link_to "VOTES RECORD", vote_history_path %></li> 
+      <li><%= link_to "ABOUT", about_path %></li>
+    </ul>
+
+</div>
+<p></p>
+<div class="container">
+<h1>Vote Tally</h1>
+<h4><%= link_to "VOTE NOW", vote_path %></h4>
+    <table class="table table-bordered">
+		<% @candidates.each do |position_id, candidates| %>
+			<thead>
+			  <tr>
+			    <th><%= Position.find(position_id).name %></th>
+			    <th>Votes</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<% candidates.each do |candidate| %>
+				  <tr>
+				    <td><%= candidate.first_name %> <%= candidate.last_name %></td>
+                    <td><%= candidate.votes.count %></td>
+				  </tr>
+				<% end %>
+			</tbody>
+		<% end %>
+    </table>
+    
+     
+</div>

@@ -1,0 +1,55 @@
+<h1 style="text-align:center"> Here are the Candidates </h1>
+
+
+<div class = "container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+  
+  
+  
+  
+    <ul class="nav navbar-nav navbartxt">
+      <li><%= link_to "HOME", root_path %></li>
+      <li><%= link_to "VOTE TALLY", candidates_list_path %></li>
+      <li class="active"><%= link_to "CANDITATE LIST", candidates_path %></li> 
+      <li><%= link_to "VOTES RECORD", vote_history_path %></li> 
+      <li><%= link_to "ABOUT", about_path %></li>
+    </ul>
+</div>
+<%= form_tag("/candidates", method: "get") do %>
+	<label>Search candidate (last name):</label>
+	<input type="text" name="q"/>
+	<input type="submit" value="Search"/>
+<% end %>
+
+
+
+ <table class="table table-bordered">
+			<thead>
+			  <tr>
+			   
+			      <th>Position</th>
+				    <th>First Name</th>
+				    <th>Last Name</th>
+				    <th>Nickname</th>
+				    <th>Slogan</th>
+				    <th></th>
+			  </tr>
+			</thead>
+			<tbody>
+				  <tr>
+			<% @candidates.each do |a| %>
+			<td><%= a.position.name %></td>
+      <td><%= a.first_name %></td>
+      <td><%= a.last_name %></td>
+      <td><%= a.nickname %></td>
+      <td><%= a.slogan %></td>
+      <td> <%= link_to "Show", candidate_path(a.id) %></td>
+				    
+				
+				  </tr>
+			<%end%>
+			</tbody>
+
+    </table>
+
+

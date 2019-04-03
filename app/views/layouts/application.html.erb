@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sira Ulo Solutions</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in? %>
+	Welcome,  <%= current_user.email %>! Your voter id is <%= current_user.id %>!
+
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+You are not yet signed in.
+	<%= link_to "Login", new_user_session_path %>
+	<%= link_to "Register here!", new_user_registration_path %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+
+
+
+<div class = "container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+    <ul class="nav navbar-nav navbartxt">
+      <li ><%= link_to "HOME", root_path %></li>
+     
+    
+</div>
+<br><br>
+<h4><strong><%= current_user.email %></strong></h4>
+
+<table class="table table-striped">
+	<thead>
+		<th>President</th>
+		<th>Vice President </th>
+		<th>Senate</th>
+	</thead>
+	<tbody>
+		<% @votes.each do |o| %>
+			<td><%= o.candidate.first_name %>&nbsp<%= o.candidate.last_name %></td>
+		
+		<% end %>
+	</tbody>
+</table>

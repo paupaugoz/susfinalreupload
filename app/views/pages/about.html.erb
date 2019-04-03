@@ -1,0 +1,76 @@
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      position: relative;
+  }
+  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5; }
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+  #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  #developer {height: 100px;
+  }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top navbartxt">
+  
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+           <li><%= link_to "HOME", root_path %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><a href="#section1">JVA</a></li>
+          <li><a href="#section2">HG</a></li>
+          <li><a href="#section3">JPG</a></li>
+          <li><a href="#section41">JPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="section1" class="container-fluid">
+  <%= image_tag "designer.png", class:"pull-right" %>
+  <h1>John Vincent Agbayani</h1>
+    
+  <h2>Designer</h2>
+ 
+</div>
+<div id="section2" class="container-fluid">
+  <%= image_tag "developer.png", size:"336x150", class:"pull-right" %>
+  <h1>Henry Gonzales</h1>
+  <h2>Developer</h2>
+</div>
+<div id="section3" class="container-fluid">
+   <%= image_tag "designer.png", class:"pull-right" %>
+  <h1>Jan Paulo Gozum</h1>
+  <h2>Designer</h2>
+</div>
+<div id="section41" class="container-fluid">
+
+   <%= image_tag "developer.png", size:"336x150", class:"pull-right" %>
+ 
+  <h1>Juan Paulo Macasaet</h1>
+  <h2>Developer</h2>
+</div>
+
+
+
+<script>
+$(document).ready(function(){
+    $('body').scrollspy({target: ".navbar", offset: 50});
+});
+</script>
+
+</body>
+</html>

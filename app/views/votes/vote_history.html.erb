@@ -1,0 +1,35 @@
+<h1>Vote Record</h1>
+
+<h4><strong><%= current_user.email %></strong></h4>
+
+<div class = "container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+    <ul class="nav navbar-nav navbartxt">
+      <li ><%= link_to "HOME", root_path %></li>
+      <li ><%= link_to "VOTE TALLY", candidates_list_path %></li>
+      <li><%= link_to "CANDITATE LIST", candidates_path %></li> 
+      <li class="active"><%= link_to "VOTES RECORD", vote_history_path %></li> 
+      <li ><%= link_to "ABOUT", about_path %></li>
+</div>
+
+
+
+
+<table class="table table-striped">
+	<thead>
+		<th>Voted Candidate</th>
+		<th>Position </th>
+		<th>Comment</th>
+		<th>Voted On</th>
+	</thead>
+	<tbody>
+		<% @votes.each do |o| %>
+			<tr>
+				<td><%= o.candidate.first_name %>&nbsp<%= o.candidate.last_name %></td>
+				<td><%= o.candidate.position.name %></td>
+				<td><%= o.comments %></td>
+				<td><%= o.created_at %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
